@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6B94F72705F8C8003CC015 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B94F62705F8C8003CC015 /* ActionButton.swift */; };
 		2BA1020326FF028800C0DC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020226FF028800C0DC7E /* AppDelegate.swift */; };
 		2BA1020526FF028800C0DC7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020426FF028800C0DC7E /* SceneDelegate.swift */; };
 		2BA1020726FF028800C0DC7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020626FF028800C0DC7E /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B6B94F62705F8C8003CC015 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2BA101FF26FF028800C0DC7E /* PermissionProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PermissionProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1020226FF028800C0DC7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BA1020426FF028800C0DC7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6B94F42705F860003CC015 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2B6B94F52705F881003CC015 /* ActionButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2B6B94F52705F881003CC015 /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				2B6B94F62705F8C8003CC015 /* ActionButton.swift */,
+			);
+			path = ActionButton;
+			sourceTree = "<group>";
+		};
 		2BA101F626FF028800C0DC7E = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +117,7 @@
 		2BA1020126FF028800C0DC7E /* PermissionProject */ = {
 			isa = PBXGroup;
 			children = (
+				2B6B94F42705F860003CC015 /* Components */,
 				2BA1020226FF028800C0DC7E /* AppDelegate.swift */,
 				2BA1020426FF028800C0DC7E /* SceneDelegate.swift */,
 				2BA1020626FF028800C0DC7E /* ViewController.swift */,
@@ -261,6 +280,7 @@
 				2BA1020726FF028800C0DC7E /* ViewController.swift in Sources */,
 				2BA1020326FF028800C0DC7E /* AppDelegate.swift in Sources */,
 				2BA1020526FF028800C0DC7E /* SceneDelegate.swift in Sources */,
+				2B6B94F72705F8C8003CC015 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
