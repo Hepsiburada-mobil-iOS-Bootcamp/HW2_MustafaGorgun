@@ -114,6 +114,7 @@
 		2B6B94F827064590003CC015 /* BaseComponent */ = {
 			isa = PBXGroup;
 			children = (
+				2B6B94FE270727CE003CC015 /* GenericValueProtocol .swift */,
 				2B6B94F9270645B7003CC015 /* BaseView.swift */,
 				2B6B950627075484003CC015 /* GenericBaseView.swift */,
 			);
@@ -124,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				2B6B94FC270727B2003CC015 /* FontManager.swift */,
-				2B6B94FE270727CE003CC015 /* GenericValueProtocol .swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

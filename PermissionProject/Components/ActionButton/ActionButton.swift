@@ -41,6 +41,10 @@ class ActionButton: GenericBaseView<ActionButtonData> {
         addContainerView() // And then we can insert our operation
         //loadData()
     }
+    override func setupViewConfigurations() {
+        super.setupViewConfigurations()
+        addTopGesture()
+    }
     override func loadDataView() {
         super.loadDataView()
         guard let data = returnData() else { return }
@@ -94,5 +98,21 @@ class ActionButton: GenericBaseView<ActionButtonData> {
         }
         
     }*/
+   
+}
+//MARK: - UIGestureRecognizerDelegate
+ extension ActionButton: UIGestureRecognizerDelegate{
+     private func addTopGesture(){
+         //let tap = UIGestureRecognizer(target: self, action: #selector()) We create another extention because This type of selector is not sugar :)
+         let tap = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
+         tap.delegate = self
+         addGestureRecognizer(tap)
+     }
+     @objc fileprivate func buttonTapped(_ sender: UIGestureRecognizer){
+        print("Bana Basıldı")
+     }
+ }
+fileprivate extension Selector{
+    static let buttonTappedSelector = #selector(ActionButton.buttonTapped)
 }
 
