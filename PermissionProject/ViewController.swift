@@ -6,56 +6,65 @@
 //
 
 import UIKit
+typealias BooleanCompletingBlock = (Bool) -> Void
 
 class ViewController: UIViewController {
     private var actionButton: ActionButton!
-    private var actionButton2: ActionButton!
+    private var actionModule: ActionModule!
 
+    
     @IBAction func cameraButtonTapped(_ sender: Any) {
         print("Camera Tapped")
-
+        
     }
     @IBAction func photosButtonTapped(_ sender: Any) {
         print("Photos Tapped")
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addActionButton()
+        setupActionModuleData()
+        //test(completion: testHandler)
+        
     }
+    lazy var testHandler: BooleanCompletingBlock = {value in
+        print("value: \(value)")
+    }
+    
     private func addActionButton(){
-        actionButton = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttontype: .filled(.smooth)))
-        actionButton.translatesAutoresizingMaskIntoConstraints = false
-        actionButton.delegate = self
-        view.addSubview(actionButton)
+        actionModule = ActionModule()
+        actionModule.translatesAutoresizingMaskIntoConstraints = false
+        //actionButton.delegate = self
+        view.addSubview(actionModule)
         
         NSLayoutConstraint.activate([
-            actionButton.heightAnchor.constraint(equalToConstant: 40),
-            actionButton.widthAnchor.constraint(equalToConstant: 100),
+            actionModule.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            actionModule.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200),
             
-            actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            actionButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        
         ])
         
-        actionButton2 = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttontype: .outlined(.smooth)))
-        actionButton2.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(actionButton2)
         
-        NSLayoutConstraint.activate([
-            actionButton2.heightAnchor.constraint(equalToConstant: 40),
-            actionButton2.widthAnchor.constraint(equalToConstant: 100),
-            
-            actionButton2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            actionButton2.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 60),
-        
-        ])
-
     }
-
-
+    func setupActionModuleData(){
+        let negative = ActionButtonData(text: "NOT NOW", buttontype: .outlined(.smooth)).setActionButtonListener {
+            print("Negative Pressed")
+        }
+        let positive = ActionButtonData(text: "OK", buttontype: .filled(.smooth)).setActionButtonListener {
+            print("Positive Pressed")
+        }
+        actionModule.setData(by: ActionModuleData(positifButton: positive, negativeButton: negative))
+    }
+    /*func test(completion: (Bool)-> Void){
+        print("Test Fired")
+        DispatchQueue.main.asyncAfter(deadline: .now()+3){
+            completion(true)
+        }
+    }*/
 }
+
+
 extension ViewController: ActionButtonDelegate{
     func ActionButtonDelegate() {
         print("ViewController is Informed")

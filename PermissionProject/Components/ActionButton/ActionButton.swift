@@ -120,7 +120,7 @@ extension ActionButton: UIGestureRecognizerDelegate{
         startTappedAnimation { finish in
             if finish{
                 self.isUserInteractionEnabled = true
-                print("Bana Basıldı")
+                //print("Bana Basıldı")
                     self.delegate?.ActionButtonDelegate()
                 
             }
