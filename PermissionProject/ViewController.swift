@@ -15,13 +15,13 @@ class ViewController: UIViewController {
         addActionButton()
     }
     private func addActionButton(){
-        actionButton = ActionButton()
+        actionButton = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttontype: .filled(.smooth)))
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(actionButton)
         
         NSLayoutConstraint.activate([
-            actionButton.heightAnchor.constraint(equalToConstant: 30),
+            actionButton.heightAnchor.constraint(equalToConstant: 40),
             actionButton.widthAnchor.constraint(equalToConstant: 100),
             
             actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
