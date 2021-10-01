@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol ActionButtonDelegate: AnyObject{
+    func ActionButtonDelegate()
+}
+
 class ActionButton: GenericBaseView<ActionButtonData> {
+    
+    weak var delegate :ActionButtonDelegate?
+    
     private lazy var shadowContainer: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
@@ -101,17 +108,25 @@ class ActionButton: GenericBaseView<ActionButtonData> {
    
 }
 //MARK: - UIGestureRecognizerDelegate
- extension ActionButton: UIGestureRecognizerDelegate{
-     private func addTopGesture(){
-         //let tap = UIGestureRecognizer(target: self, action: #selector()) We create another extention because This type of selector is not sugar :)
-         let tap = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
-         tap.delegate = self
-         addGestureRecognizer(tap)
-     }
-     @objc fileprivate func buttonTapped(_ sender: UIGestureRecognizer){
-        print("Bana Basıldı")
-     }
- }
+extension ActionButton: UIGestureRecognizerDelegate{
+    private func addTopGesture(){
+        //let tap = UIGestureRecognizer(target: self, action: #selector()) We create another extention because This type of selector is not sugar :)
+        let tap = UITapGestureRecognizer(target: self, action: .buttonTappedSelector)
+        tap.delegate = self
+        addGestureRecognizer(tap)
+    }
+    @objc fileprivate func buttonTapped(_ sender: UIGestureRecognizer){
+        isUserInteractionEnabled = false
+        startTappedAnimation { finish in
+            if finish{
+                self.isUserInteractionEnabled = true
+                print("Bana Basıldı")
+                    self.delegate?.ActionButtonDelegate()
+                
+            }
+        }
+    }
+}
 fileprivate extension Selector{
     static let buttonTappedSelector = #selector(ActionButton.buttonTapped)
 }

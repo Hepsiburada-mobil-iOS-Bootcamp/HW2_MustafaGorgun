@@ -11,6 +11,14 @@ class ViewController: UIViewController {
     private var actionButton: ActionButton!
     private var actionButton2: ActionButton!
 
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        print("Camera Tapped")
+
+    }
+    @IBAction func photosButtonTapped(_ sender: Any) {
+        print("Photos Tapped")
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -19,6 +27,7 @@ class ViewController: UIViewController {
     private func addActionButton(){
         actionButton = ActionButton(frame: .zero, data: ActionButtonData(text: "OK", buttontype: .filled(.smooth)))
         actionButton.translatesAutoresizingMaskIntoConstraints = false
+        actionButton.delegate = self
         view.addSubview(actionButton)
         
         NSLayoutConstraint.activate([
@@ -46,5 +55,12 @@ class ViewController: UIViewController {
     }
 
 
+}
+extension ViewController: ActionButtonDelegate{
+    func ActionButtonDelegate() {
+        print("ViewController is Informed")
+    }
+    
+    
 }
 
