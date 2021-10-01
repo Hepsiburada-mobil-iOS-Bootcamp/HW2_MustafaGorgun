@@ -7,8 +7,16 @@
 
 import UIKit
 
-class ActionButton: BaseView {
-    private let data: ActionButtonData
+class ActionButton: GenericBaseView<ActionButtonData> {
+    private lazy var shadowContainer: UIView = {
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.layer.shadowColor = UIColor.black.cgColor
+        temp.layer.shadowRadius = 6
+        temp.layer.shadowOpacity = 0.4
+        temp.layer.shadowOffset = CGSize(width: 0, height: 2)
+        return temp
+    }()
     private lazy var containerview : UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
@@ -27,35 +35,52 @@ class ActionButton: BaseView {
         temp.textAlignment = .center
         return temp
     }()
-    init(frame: CGRect, data: ActionButtonData) {
-        self.data = data
-        super.init(frame: frame)
-        
-    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     override func addMajorViewComponents() {
         super.addMajorViewComponents() // The reason why we call super here is that if there is a struct inside the addmajorcomponent function in a superclass, it will work. After running the function's own structs with Super, we can do the operations that we need to add to the func.
         addContainerView() // And then we can insert our operation
-        loadData()
+        //loadData()
     }
+    override func loadDataView() {
+        super.loadDataView()
+        guard let data = returnData() else { return }
+        
+        titleInfo.text = data.text
+        
+        switch data.buttontype{
+        case .filled(let theme):
+            containerview.backgroundColor = theme.value
+            titleInfo.textColor = .white
+        case .outlined(let theme):
+            containerview.backgroundColor = .white
+            containerview.layer.borderWidth = 1
+            containerview.layer.borderColor = theme.value.cgColor
+            titleInfo.textColor = theme.value
+        
+        }}
     private func addContainerView(){
-        addSubview(containerview)
+        addSubview(shadowContainer)
+        shadowContainer.addSubview(containerview)
         containerview.addSubview(titleInfo)
         
         NSLayoutConstraint.activate([
-            containerview.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerview.topAnchor.constraint(equalTo: topAnchor),
-            containerview.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerview.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            
+            containerview.leadingAnchor.constraint(equalTo: shadowContainer.leadingAnchor),
+            containerview.topAnchor.constraint(equalTo: shadowContainer.topAnchor),
+            containerview.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor),
+            containerview.bottomAnchor.constraint(equalTo: shadowContainer.bottomAnchor),
             
             titleInfo.centerXAnchor.constraint(equalTo: containerview.centerXAnchor),
             titleInfo.centerYAnchor.constraint(equalTo: containerview.centerYAnchor)
         ])
     }
-    func loadData(){
+    /*func loadData(){
         titleInfo.text = data.text
         switch data.buttontype{
         case .filled(let theme):
@@ -68,5 +93,6 @@ class ActionButton: BaseView {
             titleInfo.textColor = theme.value
         }
         
-    }
+    }*/
 }
+

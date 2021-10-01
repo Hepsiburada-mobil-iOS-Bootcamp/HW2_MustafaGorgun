@@ -14,6 +14,7 @@
 		2B6B950127073DF1003CC015 /* ActionButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B950027073DF1003CC015 /* ActionButtonData.swift */; };
 		2B6B95032707497E003CC015 /* ActionButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B95022707497E003CC015 /* ActionButtonType.swift */; };
 		2B6B9505270749B0003CC015 /* ActionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B9504270749B0003CC015 /* ActionButtonTheme.swift */; };
+		2B6B950727075484003CC015 /* GenericBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B950627075484003CC015 /* GenericBaseView.swift */; };
 		2BA1020326FF028800C0DC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020226FF028800C0DC7E /* AppDelegate.swift */; };
 		2BA1020526FF028800C0DC7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020426FF028800C0DC7E /* SceneDelegate.swift */; };
 		2BA1020726FF028800C0DC7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1020626FF028800C0DC7E /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		2B6B950027073DF1003CC015 /* ActionButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonData.swift; sourceTree = "<group>"; };
 		2B6B95022707497E003CC015 /* ActionButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonType.swift; sourceTree = "<group>"; };
 		2B6B9504270749B0003CC015 /* ActionButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonTheme.swift; sourceTree = "<group>"; };
+		2B6B950627075484003CC015 /* GenericBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBaseView.swift; sourceTree = "<group>"; };
 		2BA101FF26FF028800C0DC7E /* PermissionProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PermissionProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1020226FF028800C0DC7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BA1020426FF028800C0DC7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6B94F9270645B7003CC015 /* BaseView.swift */,
+				2B6B950627075484003CC015 /* GenericBaseView.swift */,
 			);
 			path = BaseComponent;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				2B6B94FF270727CE003CC015 /* GenericValueProtocol .swift in Sources */,
 				2B6B95032707497E003CC015 /* ActionButtonType.swift in Sources */,
 				2BA1020326FF028800C0DC7E /* AppDelegate.swift in Sources */,
+				2B6B950727075484003CC015 /* GenericBaseView.swift in Sources */,
 				2B6B94FA270645B7003CC015 /* BaseView.swift in Sources */,
 				2BA1020526FF028800C0DC7E /* SceneDelegate.swift in Sources */,
 				2B6B950127073DF1003CC015 /* ActionButtonData.swift in Sources */,
