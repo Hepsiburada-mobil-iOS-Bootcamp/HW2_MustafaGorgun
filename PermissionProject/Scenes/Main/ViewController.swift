@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         print("Camera Tapped")
-        
+        let permissionViewController = PermissionViewController()
+        present(permissionViewController, animated: true) {
+            print("permissionViewController is presented")
+        }
     }
     @IBAction func photosButtonTapped(_ sender: Any) {
         print("Photos Tapped")
@@ -23,13 +26,12 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        addActionButton()
-        setupActionModuleData()
+        //addActionButton()
+        //setupActionModuleData()
         //test(completion: testHandler)
         
     }
-    lazy var testHandler: BooleanCompletingBlock = {value in
+    /*lazy var testHandler: BooleanCompletingBlock = {value in
         print("value: \(value)")
     }
     
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
         let positive = ActionButtonData(text: "OK", buttontype: .filled(.smooth)).setActionButtonListener {
             print("Positive Pressed")
         }
+        
         actionModule.setData(by: ActionModuleData(positifButton: positive, negativeButton: negative))
     }
     /*func test(completion: (Bool)-> Void){
@@ -68,7 +71,7 @@ class ViewController: UIViewController {
 extension ViewController: ActionButtonDelegate{
     func ActionButtonDelegate() {
         print("ViewController is Informed")
-    }
+    }*/
     
     
 }

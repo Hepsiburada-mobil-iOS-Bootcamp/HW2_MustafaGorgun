@@ -91,6 +91,10 @@ class ActionButton: GenericBaseView<ActionButtonData> {
             titleInfo.centerYAnchor.constraint(equalTo: containerview.centerYAnchor)
         ])
     }
+    private func pressedButtonAction() {
+            guard let data = returnData() else { return }
+            data.actionButtonListener?()
+        }
     /*func loadData(){
         titleInfo.text = data.text
         switch data.buttontype{
@@ -121,7 +125,8 @@ extension ActionButton: UIGestureRecognizerDelegate{
             if finish{
                 self.isUserInteractionEnabled = true
                 //print("Bana Basıldı")
-                    self.delegate?.ActionButtonDelegate()
+                self.delegate?.ActionButtonDelegate()
+                self.pressedButtonAction()
                 
             }
         }

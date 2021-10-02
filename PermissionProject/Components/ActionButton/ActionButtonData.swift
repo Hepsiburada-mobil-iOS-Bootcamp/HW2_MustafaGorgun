@@ -21,7 +21,7 @@ class ActionButtonData{
         self.buttontype = buttontype
     }
     func setActionButtonListener(by value: VoidCompletingBlock?) -> Self {
-        actionButtonListener = value
-        return self
-    }
+            actionButtonListener = value
+            return self
+        }
 }
